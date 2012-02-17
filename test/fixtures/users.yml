@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  username: MyString
-  email: MyString
-  password: MyString
+gal:
+    username: 'gal'
+    email: 'liam@infobank.com'
+    email_confirmation: 'liam@infobank.com'
+    password: 'LiamisGre4t'
+    password_confirmation: 'LiamisGre4t'  
 
 two:
   username: MyString
