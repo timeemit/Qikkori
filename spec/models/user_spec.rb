@@ -39,7 +39,20 @@ describe User do
 
     it "should let the gal signup" do
       user.save.should be_true
+      User.count.should eql(1)
     end
   end
 
+  describe "authentication" do
+    it "should make sure the password_hash and password_salt are not nil" do
+      user.save
+      user.password_hash.should_not be_nil
+      user.password_salt.should_not be_nil
+    end
+    
+    it "should make sure the password is not saved in the database" do
+      user.save
+      user.password_hash.should_not eql('LiamisGre4t')
+    end
+  end
 end

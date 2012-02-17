@@ -15,8 +15,9 @@ end
 
 gem 'jquery-rails'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+# As suggested by Railscasts Episode 250 
+# http://railscasts.com/episodes/250-authentication-from-scratch
+gem "bcrypt-ruby", :require => "bcrypt"
 
 # Deploy with Capistrano
 gem 'capistrano'
