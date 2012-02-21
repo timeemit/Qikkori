@@ -1,6 +1,12 @@
 require "spec_helper"
 
 describe UsersController do
+  describe "home page" do
+    it 'routes to users#index' do
+      get("/").should route_to("users#new")
+    end
+  end
+
   describe "routing" do
 
     it "routes to #index" do

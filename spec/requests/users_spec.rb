@@ -1,3 +1,4 @@
+require 'capybara/rspec' # https://github.com/jnicklas/capybara
 require 'spec_helper'
 
 describe "Users" do
