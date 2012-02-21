@@ -28,6 +28,7 @@ gem 'capistrano'
 group :test, :development do
 	# Rspec doesn't need to be in production =)
   gem "rspec-rails", "~> 2.6"
+  gem 'jasmine'
 end
 
 group :development do

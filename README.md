@@ -9,7 +9,7 @@ Objective of the Game
 
 Move your dot from its initial position one turn at a time into the initial position of your opponent.
 
-The Initial
+The Initial Setup
 ---------------
 
 Two player dots are placed on opposite corners of a grid.
@@ -28,5 +28,5 @@ A dot may move to one adjacent intersections in a turn.
 Special (But Important!) Rules
 ---------------
 
-1. A players loses if he/she cannot move the at the beginning of a turn.
+1. Inability to move a dot at the beginning of a turn results in a loss.
 2. Two dots may not occupy the same space.

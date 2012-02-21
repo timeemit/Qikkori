@@ -1,4 +1,28 @@
-%h1 New user
+%h2 How to Play
+
+%ol#rules
+  %li 
+    %h3 Objective of the Game
+    Move your dot from its initial position one turn at a time into the initial position of your opponent.
+  %li
+    %h3 The Initial Setup
+    Two player dots are placed on opposite corners of a grid.
+    A random number of walls are placed randomly between intersections.
+  %li
+    %h3 Playing
+    On a given turn, a player must first move his/her dot and then either create or break a wall anywhere on the board.
+  %li
+    %h3 Moving the Dot
+    A dot may move to one adjacent intersections in a turn.
+  %li
+    %h3 Special (But Important!) Rules
+    %ul 
+      %li Inability to move a dot at the beginning of a turn results in a loss.
+      %li Two dots may not occupy the same space.
+  
+
+
+%h1 Play!
 
 = form_for @user do |f|
   = render 'partials/errors'
@@ -11,8 +35,8 @@
     = f.text_field :email
   .field
     = f.label :password
-    = f.text_field :password
+    = f.password_field :password
   .actions
-    = f.submit 'Save'
+    = f.submit 'Sign Me Up!'
 
 = link_to 'Back', users_path
