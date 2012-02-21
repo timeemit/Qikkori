@@ -4,7 +4,8 @@ describe("Tutorial", function() {
 	beforeEach(function(){
 		tutorial = new Tutorial();
 	});
+	
  	it("exists", function() {
-    expect(tutorial.toEqual("{}");
+    expect(tutorial).toEqual("{}");
   });
 });

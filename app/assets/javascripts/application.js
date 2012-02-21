@@ -7,5 +7,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require knockout
+//= require backbone-min
 //= require_tree .

@@ -14,7 +14,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'knockout-rails'
 
 # As suggested by Railscasts Episode 250 
 # http://railscasts.com/episodes/250-authentication-from-scratch
