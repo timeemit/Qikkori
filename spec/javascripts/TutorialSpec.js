@@ -1,4 +1,6 @@
-describe("Tutorial Model", function() {
+describe("Tutorial", function() {
+	var tutorial;
+
 	beforeEach(function(){
 		tutorial = new Tutorial();
 	});
