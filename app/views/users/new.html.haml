@@ -1,5 +1,18 @@
 %h1 New user
 
-= render 'form'
+= form_for @user do |f|
+  = render 'partials/errors'
+
+  #username.field
+    = f.label :username
+    = f.text_field :username
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :password
+    = f.text_field :password
+  .actions
+    = f.submit 'Save'
 
 = link_to 'Back', users_path

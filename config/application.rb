@@ -44,5 +44,9 @@ module Qikkori
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    # Prohibits error wrapping in the HTML Views...
+    # http://stackoverflow.com/q/5267998/614262
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| "#{html_tag}".html_safe }
   end
 end
