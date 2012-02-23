@@ -1,3 +1,5 @@
+// Renamed "Spac" so that it wouldn't show up in tests.
+
 describe("Player", function() {
   var player;
   var song;

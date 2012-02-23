@@ -11,8 +11,17 @@
 #   - dist/**/*.js
 #
 src_files:
+  - app/assets/javascripts/page.js
+  - public/javassripts/page.js
   - public/javascripts/jquery.js
-  - public/javascripts/knockout.js
+  - lib/assets/javascripts/backbone.js
+  - lib/assets/javascripts/underscore.js
+  
+  # Keeping this around so the examples work.
+  - public/javascripts/Song.js
+  - public/javascripts/Player.js
+  - public/javascripts/prototype.js
+  
 # stylesheets
 #
 # Return an array of stylesheet filepaths relative to src_dir to include before jasmine specs.

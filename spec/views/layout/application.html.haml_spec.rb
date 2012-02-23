@@ -16,7 +16,7 @@ describe "the layout" do
       assert_select 'title', /Qikkori/
     end
   
-    it "includes the jQuery, Underscore, and Backbone javascript libraries" do
+    it "includes the javascript libraries" do
       render :template => 'users/new', :layout => 'layouts/application'
       scripts = css_select "script"
       assert !scripts.empty?
