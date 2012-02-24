@@ -1,8 +1,8 @@
 describe("Page", function() {
-	var Page;
+	// var Page;
 	var page;
 
-	Page = Backbone.Model.extend();
+	// Page = Backbone.Model.extend();
 	
 	it('doesn\'t need anything to work', function(){
 		expect(1+1).toEqual(2);
