@@ -18,10 +18,10 @@ src_files:
   - app/assets/javascripts/page.js
   
   
-  # Keeping this around so the examples work.
-  - public/javascripts/Song.js
-  - public/javascripts/Player.js
-  - public/javascripts/prototype.js
+  # Working Examples.
+  # - public/javascripts/Song.js
+  # - public/javascripts/Player.js
+  # - public/javascripts/prototype.js
   
 # stylesheets
 #
