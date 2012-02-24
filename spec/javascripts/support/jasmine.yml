@@ -14,8 +14,8 @@ src_files:
   - app/assets/javascripts/page.js
   - public/javassripts/page.js
   - public/javascripts/jquery.js
-  - lib/assets/javascripts/backbone.js
   - lib/assets/javascripts/underscore.js
+  - lib/assets/javascripts/backbone.js
   
   # Keeping this around so the examples work.
   - public/javascripts/Song.js
