@@ -1,8 +1,5 @@
 describe("Page Model", function() {
-	// var Page;
 	var page;
-
-	// Page = Backbone.Model.extend();
 	
 	it('doesn\'t need anything to work', function(){
 		expect(1+1).toEqual(2);
@@ -27,4 +24,8 @@ describe("Tutorial Collection",function(){
 	it("has five instances of the model", function() {
  		expect(tutorial.length).toEqual(6);
 	});
+});
+
+describe("Tutorial View", function(){
+	
 });

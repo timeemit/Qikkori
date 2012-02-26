@@ -1,5 +1,8 @@
 var Page;
+var Pages;
+var PageView;
 var tutorial;
+var tutorialPage;
 var lessonOne = 'Move your dot from its initial position one turn at a time into the initial position of your opponent.!'
 var lessonTwo = 'Two player dots are placed on opposite corners of a grid. A random number of walls are placed randomly between intersections.'
 var lessonThree = 'On a given turn, a player must first move his/her dot and then either create or break a wall anywhere on the board.'
@@ -10,6 +13,14 @@ var lessonSix = 'Two dots may not occupy the same space.'
 Page = Backbone.Model.extend();
 
 Pages = Backbone.Collection.extend({model: Page});	
+
+PageView = Backbone.Collection.extend({
+	tagname: 'div',
+	
+	className: 'page',	
+	
+});
+
 tutorial = new Pages();
 
 tutorial.add([
@@ -20,3 +31,6 @@ tutorial.add([
 	{title: 'Immobility', text: lessonFive},
 	{title: 'Same Space', text: lessonSix}
 ]);
+
+tutorialPage = new PageView;
+
