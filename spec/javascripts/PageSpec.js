@@ -41,7 +41,7 @@ describe("Tutorial View", function(){
 	});
 	
 	it('should have the right el value', function(){
-		expect(tutorialView).toEqual('<div id="tutorial" class="page"');
+		expect(PageView.$el).toEqual('<div id="tutorial" class="page"');
 	});
 	
 	it('should change the text of the div', function(){

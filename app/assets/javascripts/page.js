@@ -32,7 +32,7 @@ PageView = Backbone.View.extend({
 
 tutorial = new Pages();
 
-tutorialView = new PageView();
+// tutorialView = new PageView();
 
 tutorial.add([
 	{title: 'Objective of the Game', text: lessonOne},
