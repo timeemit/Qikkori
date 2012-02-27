@@ -16,7 +16,7 @@ describe("Page Model", function() {
   });
 });
 
-describe("Tutorial Collection",function(){
+describe("Tutorial Collection", function(){
 	it('doesn\'t need anything to work', function() {
 		expect(1+1).toEqual(2);
 	});
@@ -32,5 +32,7 @@ describe("Tutorial Collection",function(){
 });
 
 describe("Tutorial View", function(){
-	
+	it('doesn\'t need anything to to work', function(){
+		expect(1+1).toEqual(2);
+	});
 });

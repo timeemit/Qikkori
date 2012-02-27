@@ -19,6 +19,9 @@ PageView = Backbone.Collection.extend({
 	
 	className: 'page',	
 	
+	render: function(){
+		$(this.el).html("Hello!")
+	}
 });
 
 tutorial = new Pages();

@@ -11,8 +11,10 @@
 #   - dist/**/*.js
 #
 src_files:
+  # Libraries
   - lib/assets/javascripts/underscore.js
   - lib/assets/javascripts/backbone.js
+  - lib/assets/javascripts/jquery.js
   
   # Written Javascript
   - app/assets/javascripts/page.js
