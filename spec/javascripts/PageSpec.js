@@ -24,6 +24,11 @@ describe("Tutorial Collection",function(){
 	it("has five instances of the model", function() {
  		expect(tutorial.length).toEqual(6);
 	});
+	
+	it("has assigned Client IDs to each item in the collection", function(){
+		expect(tutorial.first().cid).toEqual('c0');
+		expect(tutorial.last().cid).toEqual('c5');
+	});
 });
 
 describe("Tutorial View", function(){
