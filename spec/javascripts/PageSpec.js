@@ -32,7 +32,20 @@ describe("Tutorial Collection", function(){
 });
 
 describe("Tutorial View", function(){
-	it('doesn\'t need anything to to work', function(){
-		expect(1+1).toEqual(2);
+	beforeEach(function(){
+		loadFixtures("tutorial.html");
+	});
+	
+	it('should be able to work with a fixture', function(){
+		expect($('#tutorial')).toHaveClass('page');
+	});
+	
+	it('should have the right el value', function(){
+		expect(tutorialView).toEqual('<div id="tutorial" class="page"');
+	});
+	
+	it('should change the text of the div', function(){
+		tutorialView.render();
+		expect($('#tutorial').text()).toHaveText('Hello!');
 	});
 });
