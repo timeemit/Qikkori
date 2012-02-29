@@ -33,6 +33,30 @@ describe("Tutorial Collection", function(){
 
 describe("Tutorial View", function(){
 	beforeEach(function(){
+		var PageView;
+		var tutorialView;
+
+		PageView = new Backbone.View.extend({
+
+		  tagName: "div",
+
+		  className: "page"
+
+		  // events: {
+		  //   "click .icon":          "open",
+		  //   "click .button.edit":   "openEditDialog",
+		  //   "click .button.delete": "destroy"
+		  // },
+		  // 
+		  // render: function() {
+		  //   ...
+		  // }
+
+		});
+		
+		// tutorialView = new PageView; 
+
+		
 		loadFixtures("tutorial.html");
 	});
 	
@@ -41,7 +65,7 @@ describe("Tutorial View", function(){
 	});
 	
 	it('should have the right el value', function(){
-		expect(tutorialView).toEqual('<div id="tutorial" class="page">');
+		expect(PageView.attributes).toEqual('<div id="tutorial" class="page">');
 	});
 	
 	it('should change the text of the div', function(){

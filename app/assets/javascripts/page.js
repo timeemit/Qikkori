@@ -18,7 +18,6 @@ Page = Backbone.Model.extend();
 
 Pages = Backbone.Collection.extend({model: Page});	
 
-PageView = Backbone.View.extend();
 	
 	// className: 'page',	
 	
@@ -40,4 +39,4 @@ tutorial.add([
 	{title: 'Same Space', text: lessonSix}
 ]);
 
-tutorialView = new PageView();
+// tutorialView = new PageView();
