@@ -12,9 +12,14 @@
 #
 src_files:
   # Libraries
+  - lib/assets/javascripts/json2.js
+  - lib/assets/javascripts/jquery.js
+  - spec/javascripts/support/jasmine-jquery.js
   - lib/assets/javascripts/underscore.js
   - lib/assets/javascripts/backbone.js
-  - lib/assets/javascripts/jquery.js
+  
+  # Fixtures
+  - spec/javascripts/fixtures/tutorial.html
   
   # Written Javascript
   - app/assets/javascripts/page.js

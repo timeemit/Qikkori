@@ -9,4 +9,5 @@
 //= require jquery-ui
 //= require backbone
 //= require underscore
+//= require json2
 //= require_tree .

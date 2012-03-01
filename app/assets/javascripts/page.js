@@ -18,18 +18,27 @@ Page = Backbone.Model.extend();
 
 Pages = Backbone.Collection.extend({model: Page});	
 
+PageView = Backbone.View.extend({
+
+  tagName: "div",
+
+  className: "page",
+
+  events: {
+    // "click .icon":          "open",
+    // "click .button.edit":   "openEditDialog",
+    // "click .button.delete": "destroy"
+  },
+  
+  render: function() {
 	
-	// className: 'page',	
-	
-	// render: function(){
-	// 	$(this.el).html("Hello!");
-	// 	return this;
-	// }
+	}
+
+});
 
 // The tutorial instance
 
 tutorial = new Pages();
-
 tutorial.add([
 	{title: 'Objective of the Game', text: lessonOne},
 	{title: 'The Initial Setup',	text: lessonTwo},
@@ -38,5 +47,3 @@ tutorial.add([
 	{title: 'Immobility', text: lessonFive},
 	{title: 'Same Space', text: lessonSix}
 ]);
-
-// tutorialView = new PageView();

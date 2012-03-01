@@ -32,32 +32,16 @@ describe("Tutorial Collection", function(){
 });
 
 describe("Tutorial View", function(){
-	beforeEach(function(){
-		var PageView;
-		var tutorialView;
-
-		PageView = new Backbone.View.extend({
-
-		  tagName: "div",
-
-		  className: "page"
-
-		  // events: {
-		  //   "click .icon":          "open",
-		  //   "click .button.edit":   "openEditDialog",
-		  //   "click .button.delete": "destroy"
-		  // },
-		  // 
-		  // render: function() {
-		  //   ...
-		  // }
-
+	beforeEach(function(){		
+		loadFixtures("tutorial.html");
+		this.model = new Page({
+			title: "Hello",
+			text: "world!"
 		});
 		
-		// tutorialView = new PageView; 
+		this.tutorialView = new PageView(); 
+		this.tutorialView.setElement($('#tutorial'));
 
-		
-		loadFixtures("tutorial.html");
 	});
 	
 	it('should be able to work with a fixture', function(){
@@ -65,7 +49,7 @@ describe("Tutorial View", function(){
 	});
 	
 	it('should have the right el value', function(){
-		expect(PageView.attributes).toEqual('<div id="tutorial" class="page">');
+		expect(this.tutorialView.el).toEqual('<div id="tutorial" class="page">');
 	});
 	
 	it('should change the text of the div', function(){
