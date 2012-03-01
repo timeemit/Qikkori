@@ -34,11 +34,6 @@ describe("Tutorial Collection", function(){
 describe("Tutorial View", function(){
 	beforeEach(function(){		
 		loadFixtures("tutorial.html");
-		this.model = new Page({
-			title: "Hello",
-			text: "world!"
-		});
-		
 		this.tutorialView = new PageView(); 
 		this.tutorialView.setElement($('#tutorial'));
 
@@ -49,11 +44,13 @@ describe("Tutorial View", function(){
 	});
 	
 	it('should have the right el value', function(){
-		expect(this.tutorialView.el).toEqual('<div id="tutorial" class="page">');
+		expect($(this.tutorialView.el)).toHaveClass('page');
+		expect($(this.tutorialView.el)).toHaveId('tutorial');
+		expect($(this.tutorialView.el)).toHaveText('Hello world!');
 	});
 	
 	it('should change the text of the div', function(){
-		tutorialView.render();
-		expect($('#tutorial').text()).toHaveText('Hello!');
+		this.tutorialView.render();
+		expect($('#tutorial').text()).toEqual('Just the world!');
 	});
 });

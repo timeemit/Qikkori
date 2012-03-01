@@ -31,7 +31,8 @@ PageView = Backbone.View.extend({
   },
   
   render: function() {
-	
+		$(this.el).html('Just the world!');
+    return this;
 	}
 
 });
