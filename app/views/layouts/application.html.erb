@@ -17,7 +17,7 @@
 
   <title>Qikkori</title>
   <meta name="description" content="The hard to pronounce strategy game!">
-  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -39,6 +39,7 @@
   </footer>
 
   <%= javascript_include_tag "application" %>
+  <%= yield "script"%>
 
 </body>
 </html>

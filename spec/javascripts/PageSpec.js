@@ -25,6 +25,11 @@ describe("Tutorial Collection", function(){
  		expect(tutorial.length).toEqual(6);
 	});
 	
+	it("the first one is initially visible", function(){
+		expect(tutorial.first().get('hidden')).toEqual(false)
+		expect(tutorial.last().get('hidden')).toEqual(true)
+	})
+	
 	it("has assigned Client IDs to each item in the collection", function(){
 		expect(tutorial.first().cid).toEqual('c0');
 		expect(tutorial.last().cid).toEqual('c5');
