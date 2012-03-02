@@ -50,6 +50,4 @@ window.tutorial.add([
 ]);
 
 window.tutorialView = new PageView();
-window.tutorialView.setElement($('#tutorial'));
-
 

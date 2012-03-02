@@ -41,7 +41,6 @@ describe("Tutorial View", function(){
 		loadFixtures("tutorial.html");
 		this.tutorialView = new PageView(); 
 		this.tutorialView.setElement($('#tutorial'));
-
 	});
 	
 	it('should be able to work with a fixture', function(){
