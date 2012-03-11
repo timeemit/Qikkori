@@ -16,7 +16,15 @@ var lessonSix = 'Two dots may not occupy the same space.';
 
 Page = Backbone.Model.extend();
 
-Pages = Backbone.Collection.extend({model: Page});	
+Pages = Backbone.Collection.extend({
+	// var self = this;
+	
+	model: Page,
+	
+	currentPage: function() {
+		return this.filter(function(page){ return page.get('showing'); });
+	}
+});	
 
 PageView = Backbone.View.extend({
 
@@ -41,12 +49,12 @@ PageView = Backbone.View.extend({
 
 window.tutorial = new Pages();
 window.tutorial.add([
-	{title: 'Objective of the Game', text: lessonOne, hidden: false},
-	{title: 'The Initial Setup',	text: lessonTwo, hidden: true},
-	{title: 'Playing', text: lessonThree, hidden: true},
-	{title: 'Moving the Dot', text: lessonFour, hidden: true},
-	{title: 'Immobility', text: lessonFive, hidden: true},
-	{title: 'Same Space', text: lessonSix, hidden: true}
+	{title: 'Objective of the Game', text: lessonOne, showing: true},
+	{title: 'The Initial Setup',	text: lessonTwo, showing: false},
+	{title: 'Playing', text: lessonThree, showing: false},
+	{title: 'Moving the Dot', text: lessonFour, showing: false},
+	{title: 'Immobility', text: lessonFive, showing: false},
+	{title: 'Same Space', text: lessonSix, showing: false}
 ]);
 
 window.tutorialView = new PageView();

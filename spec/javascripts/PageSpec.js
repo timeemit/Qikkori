@@ -26,13 +26,18 @@ describe("Tutorial Collection", function(){
 	});
 	
 	it("the first one is initially visible", function(){
-		expect(tutorial.first().get('hidden')).toEqual(false)
-		expect(tutorial.last().get('hidden')).toEqual(true)
+		expect(tutorial.first().get('showing')).toEqual(true)
+		expect(tutorial.last().get('showing')).toEqual(false)
 	})
 	
 	it("has assigned Client IDs to each item in the collection", function(){
 		expect(tutorial.first().cid).toEqual('c0');
 		expect(tutorial.last().cid).toEqual('c5');
+	});
+	
+	it("returns the page showing == true as the currentPage", function(){
+		expect(tutorial.currentPage().length).toEqual(1);
+		expect(tutorial.currentPage()).toEqual(tutorial.first());
 	});
 });
 
