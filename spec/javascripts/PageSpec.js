@@ -35,9 +35,10 @@ describe("Tutorial Collection", function(){
 		expect(tutorial.last().cid).toEqual('c5');
 	});
 	
-	it("returns the page showing == true as the currentPage", function(){
+	it("returns the page where showing == true as the currentPage", function(){
 		expect(tutorial.currentPage().length).toEqual(1);
-		expect(tutorial.currentPage()).toEqual(tutorial.first());
+		expect(tutorial.first().get('showing')).toEqual(true)
+		expect(tutorial.currentPage()).toEqual( [tutorial.first()] );
 	});
 });
 
