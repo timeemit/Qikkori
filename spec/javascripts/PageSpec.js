@@ -35,10 +35,22 @@ describe("Tutorial Collection", function(){
 		expect(tutorial.last().cid).toEqual('c5');
 	});
 	
-	it("returns the page where showing == true as the currentPage", function(){
-		expect(tutorial.currentPage().length).toEqual(1);
+	it("returns the showing page as the currentPage", function(){
 		expect(tutorial.first().get('showing')).toEqual(true)
-		expect(tutorial.currentPage()).toEqual( [tutorial.first()] );
+		expect(tutorial.currentPage()).toEqual( tutorial.first() );
+	});
+	
+	it("returns the next page as the one following a showing page", function(){
+		tutorial.first().set('showing', false);
+		tutorial.last().set('showing', true);
+		expect(tutorial.nextPage()).toEqual(tutorial.first());
+		
+		expect(tutorial.getByCid('c0')).toEqual(tutorial.first());
+		// expect(tutorial.nextPage()).toEqual(tutorial.getByCid('c1').get('title'));
+	});
+
+	it("returns the previous page as the one preceding a showing page", function(){
+		expect(tutorial.previousPage()).toEqual(tutorial.last());
 	});
 });
 

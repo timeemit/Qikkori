@@ -22,7 +22,40 @@ Pages = Backbone.Collection.extend({
 	model: Page,
 	
 	currentPage: function() {
-		return this.filter(function(page){ return page.get('showing'); });
+		// Returns the (first) page with showing == true.
+		return this.find(function(page){ return page.get('showing'); });
+	},
+	
+	nextPage: function() {
+		// Returns the page following the current page, giving the first page if the current is the last.
+		if (this.currentPage() == this.last()) {
+			return this.first();
+		}
+		else {
+			index = this.indexOf(this.currentPage());
+			return this[index + 1];
+		};
+	},
+	
+	previousPage: function(){
+		// Returns the page preceding the current page, giving the last page if the current is the first.
+		if (this.currentPage() == this.first()) {
+			return this.last();
+		}
+		else {
+			index = this.indexOf(this.currentPage());
+			return this[index - 1];
+		};
+		
+	},
+	
+	turnPageForward: function(){
+		// toggles the showing value of the nextPage and currentPage objects.
+		this.currentPage.set('showing', false)
+	},
+	
+	turnPageBackward: function(){
+		
 	}
 });	
 
