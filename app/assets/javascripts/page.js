@@ -14,10 +14,17 @@ var lessonSix = 'Two dots may not occupy the same space.';
 
 // The Page class
 
-Page = Backbone.Model.extend();
+Page = Backbone.Model.extend({
+	defaults: function() {
+		return {
+			number: tutorial.length + 1
+		};
+	}
+});
+
+
 
 Pages = Backbone.Collection.extend({
-	// var self = this;
 	
 	model: Page,
 	
@@ -33,7 +40,7 @@ Pages = Backbone.Collection.extend({
 		}
 		else {
 			index = this.indexOf(this.currentPage());
-			return this[index + 1];
+			return this;
 		};
 	},
 	
@@ -46,7 +53,6 @@ Pages = Backbone.Collection.extend({
 			index = this.indexOf(this.currentPage());
 			return this[index - 1];
 		};
-		
 	},
 	
 	turnPageForward: function(){
@@ -81,14 +87,12 @@ PageView = Backbone.View.extend({
 // The tutorial instance
 
 window.tutorial = new Pages();
-window.tutorial.add([
-	{title: 'Objective of the Game', text: lessonOne, showing: true},
-	{title: 'The Initial Setup',	text: lessonTwo, showing: false},
-	{title: 'Playing', text: lessonThree, showing: false},
-	{title: 'Moving the Dot', text: lessonFour, showing: false},
-	{title: 'Immobility', text: lessonFive, showing: false},
-	{title: 'Same Space', text: lessonSix, showing: false}
-]);
+window.tutorial.add([{title: 'Objective of the Game', text: lessonOne, showing: true}]);
+window.tutorial.add({title: 'The Initial Setup',	text: lessonTwo, showing: false})
+window.tutorial.add({title: 'Playing', text: lessonThree, showing: false})
+window.tutorial.add({title: 'Moving the Dot', text: lessonFour, showing: false})
+window.tutorial.add({title: 'Immobility', text: lessonFive, showing: false})
+window.tutorial.add({title: 'Same Space', text: lessonSix, showing: false})
 
 window.tutorialView = new PageView();
 

@@ -5,6 +5,15 @@ describe("Page Model", function() {
 		expect(1+1).toEqual(2);
 	});
 	
+	it('assigns a unique number to each page', function(){
+		expect(tutorial.first().get("number")).toEqual(1);
+		
+		expect(tutorial.getByCid('c2').get("title")).toEqual('Playing');
+		expect(tutorial.getByCid('c2').get("number")).toEqual(3);
+		
+		expect(tutorial.last().get("number")).toEqual(6);
+	});
+	
  	it("returns values for attributes", function() {
 		page = new Page({
 			title: "Hello",
@@ -12,7 +21,8 @@ describe("Page Model", function() {
 		});
 	
     expect(page.get("title")).toEqual("Hello");
-    expect(page.get("text")).toEqual("world!");		
+    expect(page.get("text")).toEqual("world!");	
+		expect(page.get("number")).toEqual(7); // Six other pages have been made before it.
   });
 });
 
@@ -39,19 +49,20 @@ describe("Tutorial Collection", function(){
 		expect(tutorial.first().get('showing')).toEqual(true)
 		expect(tutorial.currentPage()).toEqual( tutorial.first() );
 	});
-	
-	it("returns the next page as the one following a showing page", function(){
-		tutorial.first().set('showing', false);
-		tutorial.last().set('showing', true);
-		expect(tutorial.nextPage()).toEqual(tutorial.first());
-		
-		expect(tutorial.getByCid('c0')).toEqual(tutorial.first());
-		// expect(tutorial.nextPage()).toEqual(tutorial.getByCid('c1').get('title'));
-	});
 
 	it("returns the previous page as the one preceding a showing page", function(){
-		expect(tutorial.previousPage()).toEqual(tutorial.last());
+			expect(tutorial.previousPage()).toEqual(tutorial.last());
 	});
+	
+	it("returns the next page as the one following a showing page", function(){
+		expect(tutorial.getByCid('c0')).toEqual(tutorial.first());
+		expect(tutorial.nextPage()).toEqual(tutorial.getByCid('c1').get('title'));
+
+		tutorial.first().set('showing', false);
+		tutorial.last().set('showing', true);
+		expect(tutorial.nextPage()).toEqual(tutorial.first());		
+	});
+
 });
 
 describe("Tutorial View", function(){
