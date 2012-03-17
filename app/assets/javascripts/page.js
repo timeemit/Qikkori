@@ -35,12 +35,13 @@ Pages = Backbone.Collection.extend({
 	
 	nextPage: function() {
 		// Returns the page following the current page, giving the first page if the current is the last.
+		var number = this.currentPage().get("number");
+
 		if (this.currentPage() == this.last()) {
 			return this.first();
 		}
 		else {
-			index = this.indexOf(this.currentPage());
-			return this;
+			return this.find(function(page){ return page.get('number') == number + 1; });
 		};
 	},
 	
