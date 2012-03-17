@@ -47,12 +47,13 @@ Pages = Backbone.Collection.extend({
 	
 	previousPage: function(){
 		// Returns the page preceding the current page, giving the last page if the current is the first.
+		var number = this.currentPage().get("number");
+
 		if (this.currentPage() == this.first()) {
 			return this.last();
 		}
 		else {
-			index = this.indexOf(this.currentPage());
-			return this[index - 1];
+			return this.find(function(page){ return page.get('number') == number - 1; });
 		};
 	},
 	
