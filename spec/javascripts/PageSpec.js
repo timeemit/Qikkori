@@ -51,16 +51,25 @@ describe("Tutorial Collection", function(){
 	});
 
 	it("returns the previous page as the one preceding a showing page", function(){
-			expect(tutorial.previousPage()).toEqual(tutorial.last());
+		tutorial.first().set('showing', false);
+		tutorial.last().set('showing', true);
+		expect(tutorial.previousPage()).toEqual(tutorial.getByCid('c4'));
+
+		tutorial.first().set('showing', true);
+		tutorial.last().set('showing', false);
+		expect(tutorial.previousPage()).toEqual(tutorial.last());		
 	});
 	
 	it("returns the next page as the one following a showing page", function(){
+		tutorial.first().set('showing', false);
+		tutorial.last().set('showing', true);
+		expect(tutorial.nextPage()).toEqual(tutorial.first());		
+
+		tutorial.first().set('showing', true);
+		tutorial.last().set('showing', false);
 		expect(tutorial.getByCid('c0')).toEqual(tutorial.first());
 		expect(tutorial.nextPage()).toEqual(tutorial.getByCid('c1'));
 
-		// tutorial.first().set('showing', false);
-		// tutorial.last().set('showing', true);
-		// expect(tutorial.nextPage()).toEqual(tutorial.first());		
 	});
 
 });
