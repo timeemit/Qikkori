@@ -1,7 +1,11 @@
 -content_for "script" do
   :javascript
-    view = window.tutorialView.render();
-    
+    $(function(){
+      tutorialView = new PageView();
+      alert(tutorialView.$el.html());
+      tutorialView.render();
+      alert(tutorialView.$el.html());
+    })
 
 %h2 How to Play
 

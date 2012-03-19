@@ -87,6 +87,7 @@ describe("Tutorial View", function(){
 	
 	it('should have the right el value', function(){
 		expect($(this.tutorialView.el)).toHaveClass('page');
+		expect($('.page')).toHaveClass('page');
 		expect($(this.tutorialView.el)).toHaveId('tutorial');
 		expect($(this.tutorialView.el)).toHaveText('Hello world!');
 	});

@@ -68,10 +68,13 @@ Pages = Backbone.Collection.extend({
 });	
 
 PageView = Backbone.View.extend({
+	el: '.page',
 
-  tagName: "div",
-
-  className: "page",
+	//   tagName: "div",
+	// 
+	// 	 id: "tutorial",
+	// 
+	//   className: "page",
 
   events: {
     // "click .icon":          "open",
@@ -80,7 +83,7 @@ PageView = Backbone.View.extend({
   },
   
   render: function() {
-		$(this.el).html('Just the world!');
+		this.$el.html('Just the world!');
     return this;
 	}
 
@@ -95,6 +98,3 @@ window.tutorial.add({title: 'Playing', text: lessonThree, showing: false})
 window.tutorial.add({title: 'Moving the Dot', text: lessonFour, showing: false})
 window.tutorial.add({title: 'Immobility', text: lessonFive, showing: false})
 window.tutorial.add({title: 'Same Space', text: lessonSix, showing: false})
-
-window.tutorialView = new PageView();
-
