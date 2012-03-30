@@ -24,6 +24,11 @@ describe("Page Model", function() {
     expect(page.get("text")).toEqual("world!");	
 		expect(page.get("number")).toEqual(7); // Six other pages have been made before it.
   });
+
+	it("can render page as a JSON object", function() {
+    expect(page.get("title")).toEqual("Hello");
+		expect(page.toJSON()).toEqual({ number : 7, title : 'Hello', text : 'world!' });
+	});
 });
 
 describe("Tutorial Collection", function(){
@@ -92,8 +97,14 @@ describe("Tutorial View", function(){
 		expect($(this.tutorialView.el)).toHaveText('Hello world!');
 	});
 	
+	it('should be able to render templates', function(){
+		var compiled = _.template("hello: <%= name %>");
+		expect(compiled({name : 'moe'})).toEqual("hello: moe");
+	});
+	
 	it('should change the text of the div', function(){
 		this.tutorialView.render();
-		expect($('#tutorial').text()).toEqual('Just the world!');
+		expect($('#tutorial').text()).toNotEqual('Just the world!');
 	});
+
 });

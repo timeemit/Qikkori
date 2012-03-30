@@ -22,8 +22,6 @@ Page = Backbone.Model.extend({
 	}
 });
 
-
-
 Pages = Backbone.Collection.extend({
 	
 	model: Page,
@@ -67,7 +65,19 @@ Pages = Backbone.Collection.extend({
 	}
 });	
 
-PageView = Backbone.View.extend({
+// The tutorial instance
+
+window.tutorial = new Pages();
+window.tutorial.add({title: 'Objective of the Game', text: lessonOne, showing: true});
+window.tutorial.add({title: 'The Initial Setup',	text: lessonTwo, showing: false});
+window.tutorial.add({title: 'Playing', text: lessonThree, showing: false});
+window.tutorial.add({title: 'Moving the Dot', text: lessonFour, showing: false});
+window.tutorial.add({title: 'Immobility', text: lessonFive, showing: false});
+window.tutorial.add({title: 'Same Space', text: lessonSix, showing: false});
+
+PageView = Backbone.View.extend({	
+	model: Page,
+	
 	el: '.page',
 
 	//   tagName: "div",
@@ -82,19 +92,11 @@ PageView = Backbone.View.extend({
     // "click .button.delete": "destroy"
   },
   
+	template: _.template("<h3><%= number %>. <%= title %></h3><%= text %>"),
+	
   render: function() {
-		this.$el.html('Just the world!');
+		this.$el.html(this.template(tutorial.currentPage().toJSON()));
     return this;
 	}
 
 });
-
-// The tutorial instance
-
-window.tutorial = new Pages();
-window.tutorial.add([{title: 'Objective of the Game', text: lessonOne, showing: true}]);
-window.tutorial.add({title: 'The Initial Setup',	text: lessonTwo, showing: false})
-window.tutorial.add({title: 'Playing', text: lessonThree, showing: false})
-window.tutorial.add({title: 'Moving the Dot', text: lessonFour, showing: false})
-window.tutorial.add({title: 'Immobility', text: lessonFive, showing: false})
-window.tutorial.add({title: 'Same Space', text: lessonSix, showing: false})
