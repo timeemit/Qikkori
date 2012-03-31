@@ -89,9 +89,9 @@ PageView = Backbone.View.extend({
 	//   className: "page",
 
   events: {
-		"dblclick": function(){alert('you double-clicked')},
-    "click #tutorial_previous": function(){alert('hello!')}//, //"seePreviousPage",
-    // "click #tutorial_next": 		"seeNextPage"
+		// "dblclick": function(){alert('you double-clicked')},
+    "click #tutorial_previous": "seePreviousPage",
+    "click #tutorial_next": 		"seeNextPage"
 	},
   
 	template: _.template('<h3><%= number %>. <%= title %></h3><%= text %> \
@@ -108,12 +108,12 @@ PageView = Backbone.View.extend({
 
 	seeNextPage: function() {
 		tutorial.turnPageForward();
-		// this.render();
+		this.render();
 	},
 	
 	seePreviousPage: function() {
 		tutorial.turnPageBackward();
-		// this.render();
+		this.render();
 	}
 
 });
