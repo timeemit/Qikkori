@@ -74,9 +74,27 @@ describe("Tutorial Collection", function(){
 		tutorial.last().set('showing', false);
 		expect(tutorial.getByCid('c0')).toEqual(tutorial.first());
 		expect(tutorial.nextPage()).toEqual(tutorial.getByCid('c1'));
-
 	});
 
+	it("can paginate forward and backward", function(){
+		// Foward pagination from the first page should be the second page.
+		tutorial.turnPageForward();
+		expect(tutorial.first().get('showing')).toEqual(false);
+		expect(tutorial.currentPage().get('showing')).toEqual(true);
+		expect(tutorial.currentPage().get('number')).toEqual(2);
+		
+		// Backward pagination from the second page should be first page.
+		tutorial.turnPageBackward();
+		expect(tutorial.first()).toEqual(tutorial.currentPage());
+		
+		// Backward pagination from the first page should be the last page.
+		tutorial.turnPageBackward();
+		expect(tutorial.last()).toEqual(tutorial.currentPage());
+		
+		// Foward pagination from the last page should be first page.
+		tutorial.turnPageForward();
+		expect(tutorial.first()).toEqual(tutorial.currentPage());
+	});
 });
 
 describe("Tutorial View", function(){

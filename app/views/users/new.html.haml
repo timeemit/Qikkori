@@ -2,37 +2,37 @@
   :javascript
     $(function(){
       tutorialView = new PageView();
-      alert(tutorialView.$el.html());
+      // alert(tutorialView.$el.html());
       tutorialView.render();
-      alert(tutorialView.$el.html());
+      // alert(tutorialView.$el.html());
     })
 
 %h2 How to Play
 
 #tutorial.page Hello World!
 
-%ol#rules
-  %li 
-    %h3 Objective of the Game
-    Move your dot from its initial position one turn at a time into the initial position of your opponent.
-  %li
-    %h3 The Initial Setup
-    Two player dots are placed on opposite corners of a grid.
-    A random number of walls are placed randomly between intersections.
-  %li
-    %h3 Playing
-    On a given turn, a player must first move his/her dot and then either create or break a wall anywhere on the board.
-  %li
-    %h3 Moving the Dot
-    A dot may move to one adjacent intersections in a turn.
-  %li
-    %h3 Special (But Important!) Rules
-    %ul 
-      %li Inability to move a dot at the beginning of a turn results in a loss.
-      %li Two dots may not occupy the same space.
+/ %ol#rules
+/   %li 
+/     %h3 Objective of the Game
+/     Move your dot from its initial position one turn at a time into the initial position of your opponent.
+/   %li
+/     %h3 The Initial Setup
+/     Two player dots are placed on opposite corners of a grid.
+/     A random number of walls are placed randomly between intersections.
+/   %li
+/     %h3 Playing
+/     On a given turn, a player must first move his/her dot and then either create or break a wall anywhere on the board.
+/   %li
+/     %h3 Moving the Dot
+/     A dot may move to one adjacent intersections in a turn.
+/   %li
+/     %h3 Special (But Important!) Rules
+/     %ul 
+/       %li Inability to move a dot at the beginning of a turn results in a loss.
+/       %li Two dots may not occupy the same space.
 
-= image_tag "arrow_left.png", :id => "tutorial_previous", :onclick => "alert('Hello left!');"
-= image_tag "arrow_right.png", :id => "tutorial_next", :onclick => "alert(PageView.el);"
+= image_tag "arrow_left.png", :id => "tutorial_previous"
+= image_tag "arrow_right.png", :id => "tutorial_next"
 
 
 %h1 Play!

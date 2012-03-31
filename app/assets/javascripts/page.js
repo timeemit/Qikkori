@@ -16,9 +16,7 @@ var lessonSix = 'Two dots may not occupy the same space.';
 
 Page = Backbone.Model.extend({
 	defaults: function() {
-		return {
-			number: tutorial.length + 1
-		};
+		return { number: tutorial.length + 1 };
 	}
 });
 
@@ -57,11 +55,15 @@ Pages = Backbone.Collection.extend({
 	
 	turnPageForward: function(){
 		// toggles the showing value of the nextPage and currentPage objects.
-		this.currentPage.set('showing', false)
+		var currentPage = this.currentPage();
+		this.nextPage().set('showing', true);
+		currentPage.set('showing', false);
 	},
 	
 	turnPageBackward: function(){
-		
+		var currentPage = this.currentPage();
+		this.previousPage().set('showing', true);
+		currentPage.set('showing', false);
 	}
 });	
 
@@ -87,16 +89,25 @@ PageView = Backbone.View.extend({
 	//   className: "page",
 
   events: {
-    // "click .icon":          "open",
-    // "click .button.edit":   "openEditDialog",
-    // "click .button.delete": "destroy"
-  },
+    "click #tutorial_previous": "seePreviousPage",
+    "click #tutorial_next": 		"seeNextPage"
+	},
   
 	template: _.template("<h3><%= number %>. <%= title %></h3><%= text %>"),
 	
   render: function() {
 		this.$el.html(this.template(tutorial.currentPage().toJSON()));
     return this;
+	},
+
+	seeNextPage: function() {
+		tutorial.turnPageForward();
+		// this.render();
+	},
+	
+	seePreviousPage: function() {
+		tutorial.turnPageBackward();
+		// this.render();
 	}
 
 });
