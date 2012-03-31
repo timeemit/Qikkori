@@ -5,7 +5,7 @@ var PageView;
 var tutorial;
 var tutorialView;
 
-var lessonOne = 'Move your dot from its initial position one turn at a time into the initial position of your opponent.!';
+var lessonOne = 'Move your dot from its initial position one turn at a time into the initial position of your opponent.';
 var lessonTwo = 'Two player dots are placed on opposite corners of a grid. A random number of walls are placed randomly between intersections.';
 var lessonThree = 'On a given turn, a player must first move his/her dot and then either create or break a wall anywhere on the board.';
 var lessonFour = 'A dot may move to one adjacent intersections in a turn.';
@@ -89,12 +89,18 @@ PageView = Backbone.View.extend({
 	//   className: "page",
 
   events: {
-    "click #tutorial_previous": "seePreviousPage",
-    "click #tutorial_next": 		"seeNextPage"
+		"dblclick": function(){alert('you double-clicked')},
+    "click #tutorial_previous": function(){alert('hello!')}//, //"seePreviousPage",
+    // "click #tutorial_next": 		"seeNextPage"
 	},
   
-	template: _.template("<h3><%= number %>. <%= title %></h3><%= text %>"),
+	template: _.template('<h3><%= number %>. <%= title %></h3><%= text %> \
+		<br /> \
+		<img alt="Arrow_left" id="tutorial_previous" src="/assets/arrow_left.png" /> \
+		<img alt="Arrow_right" id="tutorial_next" src="/assets/arrow_right.png" />'),
 	
+	footer: '<img alt="Arrow_left" id="tutorial_previous" src="/assets/arrow_left.png" /><img alt="Arrow_right" id="tutorial_next" src="/assets/arrow_right.png" />',
+		
   render: function() {
 		this.$el.html(this.template(tutorial.currentPage().toJSON()));
     return this;

@@ -124,5 +124,4 @@ describe("Tutorial View", function(){
 		this.tutorialView.render();
 		expect($('#tutorial').text()).toNotEqual('Just the world!');
 	});
-
 });
