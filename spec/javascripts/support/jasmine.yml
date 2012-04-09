@@ -23,6 +23,7 @@ src_files:
   
   # Written Javascript
   - app/assets/javascripts/page.js
+  - app/assets/javascripts/user.js
   
   
   # Working Examples.
