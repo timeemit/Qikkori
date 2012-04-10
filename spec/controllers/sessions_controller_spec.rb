@@ -1,12 +1,14 @@
 require 'spec_helper'
 
 describe SessionsController do  
+  fixtures :users
+  
   # This should return the minimal set of attributes required to create a valid
   # User. As you add validations to User, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
     {
-      :email => 'liam@infobank.com',
+      :email => 'boy@home.com',
       :password => 'LiamisGre4t'
     }
   end
@@ -14,11 +16,11 @@ describe SessionsController do
   # Fixture
   def valid_user
     {
-      :username => 'girl',
-      :email => 'liam@infobank.com',
-      :email_confirmation => 'liam@infobank.com',
+      :username => 'girl', 
+      :email => 'girl@home.com',
+      :email_confirmation => 'girl@home.com',
       :password => 'LiamisGre4t',
-      :password_confirmation => 'LiamisGre4t'
+      :password_confirmation => 'LiamisGre4t'  
     }
   end
 
@@ -39,17 +41,16 @@ describe SessionsController do
   end
 
   describe "POST create" do
-    describe "with an existing user" do
+    describe "with an valid user" do
       it "creates a new Session" do
-        User.create(valid_user)
-        User.last.username.should eq 'girl'
-        post :create, {:user => valid_attributes}, valid_session
+        User.create(valid_user).errors.should be_empty
+        post :create, valid_attributes, valid_session
         session.should eq(1)
       end
 
       it "redirects to the created user" do
         post :create, {:user => valid_attributes}, valid_session
-        response.should eq 1# redirect_to(root_url)
+        response.should redirect_to(root_url)
       end
     end
 

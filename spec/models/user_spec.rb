@@ -1,15 +1,16 @@
 require 'spec_helper'
 
 describe User do
+  fixtures :users
   user = User.new(
     :username => 'girl', 
-    :email => 'liam@infobank.com',
-    :email_confirmation => 'liam@infobank.com',
+    :email => 'girl@home.com',
+    :email_confirmation => 'girl@home.com',
     :password => 'LiamisGre4t',
     :password_confirmation => 'LiamisGre4t'  
   )
 
-  describe "validations" do
+  describe "validations" do    
     it "should make sure the username isn't too short or long" do
       user.stub(:username) {'hey'}
       user.save.should_not be_true
@@ -36,10 +37,10 @@ describe User do
       user.stub(:email_confirmation) {nil}
       user.save.should_not be_true
     end
-
+    
     it "should let the gal signup" do
       user.save.should be_true
-      User.count.should eql(1)
+      User.count.should eql(2)  # Remember that there is already a boy in the fixtures
     end
   end
 
@@ -53,6 +54,11 @@ describe User do
     it "should make sure the password is not saved in the database" do
       user.save
       user.password_hash.should_not eql('LiamisGre4t')
+    end
+    
+    it "should return the user in the database when given the right username and password" do
+      user = users(:boy)
+      User.authenticate(user.email, 'LiamisGre4t').should eql(user)
     end
   end
 end

@@ -1,0 +1,8 @@
+<% boy_password = 'LiamisGre4t' %>
+<% boy_salt = BCrypt::Engine.generate_salt %>
+<% boy_hash = BCrypt::Engine.hash_secret(boy_password, boy_salt) %>
+boy:
+  username: 'boy'
+  email: 'boy@home.com'
+  password_salt: <%= boy_salt %>
+  password_hash: <%= boy_hash %>

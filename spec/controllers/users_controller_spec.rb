@@ -25,11 +25,11 @@ describe UsersController do
   # update the return value of this method accordingly.
   def valid_attributes
     {
-      :username => 'girl',
-      :email => 'liam@infobank.com',
-      :email_confirmation => 'liam@infobank.com',
+      :username => 'girl', 
+      :email => 'girl@home.com',
+      :email_confirmation => 'girl@home.com',
       :password => 'LiamisGre4t',
-      :password_confirmation => 'LiamisGre4t'
+      :password_confirmation => 'LiamisGre4t'  
     }
   end
   
@@ -44,7 +44,7 @@ describe UsersController do
     it "assigns all users as @users" do
       user = User.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:users).should eq([user])
+      assigns(:users).should eq([User.first, user])
     end
   end
 
