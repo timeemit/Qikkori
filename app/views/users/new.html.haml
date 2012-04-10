@@ -2,50 +2,26 @@
   :javascript
     $(function(){
       tutorialView = new PageView();
-      // alert(tutorialView.$el.html());
       tutorialView.render();
-      // alert(tutorialView.$el.html());
     })
+    userForm = new NewUserForm();
 
 %h2 How to Play
 
 #tutorial.page
-  Hello World!
-
-/ %ol#rules
-/   %li 
-/     %h3 Objective of the Game
-/     Move your dot from its initial position one turn at a time into the initial position of your opponent.
-/   %li
-/     %h3 The Initial Setup
-/     Two player dots are placed on opposite corners of a grid.
-/     A random number of walls are placed randomly between intersections.
-/   %li
-/     %h3 Playing
-/     On a given turn, a player must first move his/her dot and then either create or break a wall anywhere on the board.
-/   %li
-/     %h3 Moving the Dot
-/     A dot may move to one adjacent intersections in a turn.
-/   %li
-/     %h3 Special (But Important!) Rules
-/     %ul 
-/       %li Inability to move a dot at the beginning of a turn results in a loss.
-/       %li Two dots may not occupy the same space.
-
-
 
 %h1 Play!
 
-= form_for @user do |f|
+= form_for @user, :remote => true do |f|
   = render 'partials/errors'
 
   #username.field
     = f.label :username
     = f.text_field :username
-  .field
+  #email.field
     = f.label :email
     = f.text_field :email
-  .field
+  #password.field
     = f.label :password
     = f.password_field :password
   .actions

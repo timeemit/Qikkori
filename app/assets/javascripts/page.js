@@ -82,14 +82,7 @@ PageView = Backbone.View.extend({
 	
 	el: '.page',
 
-	//   tagName: "div",
-	// 
-	// 	 id: "tutorial",
-	// 
-	//   className: "page",
-
   events: {
-		// "dblclick": function(){alert('you double-clicked')},
     "click #tutorial_previous": "seePreviousPage",
     "click #tutorial_next": 		"seeNextPage"
 	},

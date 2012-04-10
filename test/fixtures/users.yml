@@ -6,8 +6,3 @@ gal:
     email_confirmation: 'liam@infobank.com'
     password: 'LiamisGre4t'
     password_confirmation: 'LiamisGre4t'  
-
-two:
-  username: MyString
-  email: MyString
-  password: MyString
