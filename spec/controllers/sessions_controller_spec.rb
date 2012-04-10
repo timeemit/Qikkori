@@ -43,13 +43,12 @@ describe SessionsController do
   describe "POST create" do
     describe "with an valid user" do
       it "creates a new Session" do
-        User.create(valid_user).errors.should be_empty
         post :create, valid_attributes, valid_session
-        session.should eq(1)
+        session[:user_id].should eq(users(:boy).id)
       end
 
       it "redirects to the created user" do
-        post :create, {:user => valid_attributes}, valid_session
+        post :create, valid_attributes, valid_session
         response.should redirect_to(root_url)
       end
     end

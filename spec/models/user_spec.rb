@@ -48,7 +48,6 @@ describe User do
     it "should make sure the password_hash and password_salt are not nil" do
       user.save
       user.password_hash.should_not be_nil
-      user.password_salt.should_not be_nil
     end
     
     it "should make sure the password is not saved in the database" do

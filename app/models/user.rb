@@ -9,9 +9,6 @@ class User < ActiveRecord::Base
   validates :password, :confirmation => true
   validates :password_confirmation, :presence => true
 
-  # Railscasts Episode 250 
-  # http://railscasts.com/episodes/250-authentication-from-scratch
-
   before_save :encrypt_password
   
   def self.authenticate(email, password)
