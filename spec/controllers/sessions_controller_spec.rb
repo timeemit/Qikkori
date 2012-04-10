@@ -62,4 +62,20 @@ describe SessionsController do
       end
     end
   end
+  
+  describe "DELETE destroy" do
+    it "destroys the requested user" do
+      user = users(:boy)
+      post :create, valid_attributes, valid_session
+      session[:user_id].should eq(users(:boy).id)
+      delete :destroy, valid_attributes, valid_session
+      session[:user_id].should be_nil
+    end
+
+    it "redirects to the users list" do
+      user = users(:boy)
+      delete :destroy, valid_attributes, valid_session
+      response.should redirect_to(root_url)
+    end
+  end
 end
