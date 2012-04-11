@@ -13,3 +13,16 @@ describe("User Model", function() {
 		expect(user.get('errors')).toEqual(null);
 	});
 });
+
+describe("User Form View", function(){
+	beforeEach(function(){		
+		loadFixtures("user_form.html");
+		this.userView = new NewUserForm(); 
+	});
+	
+	it('should be able to work with a fixture', function(){
+		expect($('form').children().length).toEqual(6);
+	});
+	
+	it('should ')
+});
