@@ -5,3 +5,11 @@
  *= require_self
  *= require_tree . 
 */
+
+body{
+	margin: auto;
+	text-align: center;
+}
+
+/*Makes sure that the arrows on a page are consistently at the same height.  */
+.page > div{height: 53px;}

@@ -87,8 +87,10 @@ PageView = Backbone.View.extend({
     "click #tutorial_next": 		"seeNextPage"
 	},
   
-	template: _.template('<h3><%= number %>. <%= title %></h3><%= text %> \
-		<br /> \
+	template: _.template('<h3><%= number %>. <%= title %></h3> \
+		<div id="tutorial_text"> \
+		<%= text %> \
+		</div> \
 		<img alt="Arrow_left" id="tutorial_previous" src="/assets/arrow_left.png" /> \
 		<img alt="Arrow_right" id="tutorial_next" src="/assets/arrow_right.png" />'),
 	

@@ -6,25 +6,30 @@
     })
     userForm = new NewUserForm();
 
-%h2 How to Play
+.container_12
+  #tutorial.grid_3 
+    %h2 How to Play
+    .page
 
-#tutorial.page
+  #game_board.grid_5 Game Board
 
-%h1 Play!
+  #sign_up.grid_4
 
-= form_for @user, :remote => true do |f|
-  = render 'partials/errors'
+    %h1 Play!
 
-  #username.field
-    = f.label :username
-    = f.text_field :username
-  #email.field
-    = f.label :email
-    = f.text_field :email
-  #password.field
-    = f.label :password
-    = f.password_field :password
-  .actions
-    = f.submit 'Sign Me Up!'
+    = form_for @user, :remote => true do |f|
+      = render 'partials/errors'
 
-= link_to 'Back', users_path
+      #username.field
+        = f.label :username
+        = f.text_field :username, :size => 20
+      #email.field
+        = f.label :email
+        = f.text_field :email, :size => 20
+      #password.field
+        = f.label :password
+        = f.password_field :password, :size => 20
+      .actions
+        = f.submit 'Sign Me Up!'
+
+    = link_to 'Back', users_path
