@@ -12,4 +12,4 @@ body{
 }
 
 /*Makes sure that the arrows on a page are consistently at the same height.  */
-.page > div{height: 53px;}
+.page > div{height: 70px;}

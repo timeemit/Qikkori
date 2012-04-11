@@ -1,10 +1,11 @@
 -content_for "script" do
   :javascript
     $(function(){
-      tutorialView = new PageView();
+      var tutorialView = new PageView();
       tutorialView.render();
     })
-    userForm = new NewUserForm();
+    var userForm = new NewUserForm();
+    var user = new User();
 
 .container_12
   #tutorial.grid_3 
@@ -25,10 +26,17 @@
         = f.text_field :username, :size => 20
       #email.field
         = f.label :email
-        = f.text_field :email, :size => 20
+        = f.text_field :email, :size => 19
+      #email_confirmation.field
+        = f.label :confirm_email
+        = f.text_field :email_confirmation, :size => 18
       #password.field
         = f.label :password
-        = f.password_field :password, :size => 20
+        = f.password_field :password, :size => 17
+      #password_confirmation.field
+        = f.label :confim_password
+        = f.password_field :password_confirmation, :size => 16
+
       .actions
         = f.submit 'Sign Me Up!'
 

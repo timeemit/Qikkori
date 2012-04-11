@@ -15,10 +15,15 @@ var NewUserForm = Backbone.View.extend({
 	el: 'form#new_user',
 	
 	events: {
-    "click input": "submit"
+		"blur input": "update",
+    "click input[type='submit']": "submit"
+	},
+	
+	update: function() {
+		user.set("username", $('#user_username').value);
 	},
 	
 	submit: function() {
-		alert("hello");
+		alert(user.username);
 	}
 });
