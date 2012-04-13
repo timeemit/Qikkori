@@ -15,8 +15,11 @@ describe("User Model", function() {
 	it("returns an error if the emails do not match", function() {
 		var user = new User;
 		user.set('email', "somewhere@here.com");
+		expect(user.get('email')).toNotEqual("somewhere@here.com");
 		user.set('email_confirmation', "somewhereElse@There.com");
-		expect(user.get('errors')).toNotEqual(null);
+		expect(user.get('email_confirmation')).toNotEqual("somewhereElse@There.com");
+		user.set({email: somewhereHere@now.com, email_confirmation: somewhereHere@now.com});
+		
 	});
 });
 
