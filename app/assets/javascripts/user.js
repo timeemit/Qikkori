@@ -10,7 +10,16 @@ var User = Backbone.Model.extend({
 	},
 	
 	validate: function(attrs){
-		if (attrs.email != attrs.email_confirmation) {
+		if (attrs.username == '') {
+			return "Username can't be blank.";
+		}
+		else if (attrs.email == '') {
+			return "Email can't be blank.";
+		}
+		else if (attrs.password == '') { 
+			return "Password can't be blank.";
+		}
+		else if (attrs.email != attrs.email_confirmation) {
 			return "Emails did not match.";
 		}
 		else if (attrs.password != attrs.password_confirmation) {
@@ -30,10 +39,11 @@ var NewUserForm = Backbone.View.extend({
 	
 	events: {
 		// "blur input": "write_errors",
+		// "error": "write_errors",
     "click input[type='submit']": "submit"
 	},
 	
-	update: function() {
+	readAndSave: function() {
 		// Get the values for the model.
 		set_username = $('#user_username').val();
 		set_email = $('#user_email').val();
@@ -42,33 +52,33 @@ var NewUserForm = Backbone.View.extend({
 		set_password_confirmation = $('#user_password_confirmation').val();
 
 		// Set the values for the model.
-		this.model.set("username", set_username);
-		this.model.set({email: set_email, email_confirmation: set_email_confirmation})
-		this.model.set({password: set_password, password_confirmation: set_password_confirmation})
+		this.model.save({
+			username: set_username,
+			email: set_email, 
+			email_confirmation: set_email_confirmation,
+			password: set_password, 
+			password_confirmation: set_password_confirmation
+		});
 	},
 	
 	submit: function() {
-		this.update();
-		alert(JSON.stringify(this.model));
-		this.model.save( 
-			{}, // The first paramater is to save any attributes before saving.
-			{
-				success: function(model, response){
-					alert("Success!");
-				},
-				error: function(model, response) {
-					alert("Error!");
-				} 
-			}
-		);
-	},
+		this.readAndSave();
+		alert(JSON.stringify(this.model)); // For debugging...
+	}//,
 	
-	write_errors: function(model, response) {
-		// This should create an error_explanation div only if there isn't one already.
-		if ($('#error_explanation').size() == 0){
-			$('#new_user').prepend('<div id="error_explanation"></div>');
-			$('#error_explanation').prepend('<h2>An error has occurred.</h2>');
-		}
-		alert(model);
+	// error_template: _.template('<li><%= number %>. <%= title %></li>),
+	
+	// write_errors: function(model, response) {
+	// 	alert(model);
+	// }
+});
+
+new_user.on("error", function(model, error) {
+	// This should create an error_explanation div only if there isn't one already.
+	if ($('#error_explanation').size() == 0) {
+		$('#new_user').prepend('<div id="error_explanation"></div>');
+		$('#error_explanation').prepend('<h2>An error has occurred.</h2><div id="error"></div');
 	}
+  // alert(model.get("username") + " " + JSON.stringify(error));
+	$('#error').text(error);
 });
