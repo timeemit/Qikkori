@@ -44,27 +44,23 @@ var NewUserForm = Backbone.View.extend({
 		// Set the values for the model.
 		this.model.set("username", set_username);
 		this.model.set({email: set_email, email_confirmation: set_email_confirmation})
-		// this.model.set("email", email);
-		// this.model.set("email_confirmation", email_confirmation);
 		this.model.set({password: set_password, password_confirmation: set_password_confirmation})
-		// this.model.set("password", password);
-		// this.model.set("password_confirmation", password_confirmation);		
 	},
 	
 	submit: function() {
 		this.update();
 		alert(JSON.stringify(this.model));
-		// this.model.save( 
-		// 	{}, // The first paramater is to save any attributes before saving.
-		// 	{
-		// 		success: function(model, response){
-		// 			alert("Success!");
-		// 		},
-		// 		error: function(model, response) {
-		// 			alert("Error!");
-		// 		} 
-		// 	}
-		// );
+		this.model.save( 
+			{}, // The first paramater is to save any attributes before saving.
+			{
+				success: function(model, response){
+					alert("Success!");
+				},
+				error: function(model, response) {
+					alert("Error!");
+				} 
+			}
+		);
 	},
 	
 	write_errors: function(model, response) {

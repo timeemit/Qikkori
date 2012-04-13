@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :email, :password, :email_confirmation, :password_confirmation
+  attr_accessible :username, :email, :email_confirmation, :password, :password_confirmation
   
-  attr_accessor :password
+  attr_accessor :password, :password_confirmation
 
   validates :username, :length => {:in => 4..20}, :uniqueness => true
-  validates :email, :confirmation => true
+  validates :email, :presence => true, :confirmation => true
   validates :email_confirmation, :presence => true
-  validates :password, :confirmation => true
+  validates :password, :presence => true, :confirmation => true
   validates :password_confirmation, :presence => true
 
   before_save :encrypt_password
