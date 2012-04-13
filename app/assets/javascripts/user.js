@@ -11,10 +11,10 @@ var User = Backbone.Model.extend({
 	
 	validate: function(attrs){
 		if (attrs.email != attrs.email_confirmation){
-			return "Emails did not match."
+			return "Emails did not match.";
 		}
 		else if (attrs.password != attrs.password_confirmation){
-			return "Passwords did not match."
+			return "Passwords did not match.";
 		}
 	}
 });
@@ -28,8 +28,8 @@ var NewUserForm = Backbone.View.extend({
 	
 	events: {
 		// "blur input": "update",
-    "click input[type='submit']": "submit"
-		"error": "write_errors"
+    "click input[type='submit']": "submit",
+		"blur input": "write_errors"
 	},
 	
 	update: function() {
@@ -51,9 +51,12 @@ var NewUserForm = Backbone.View.extend({
 	submit: function() {
 		this.update();
 		this.model.save();
-	}
+	},
 	
 	write_errors: function() {
-		$('#new_user').prepend("help!");
+		if ($('#error_explanation').size() == 0){
+			$('#new_user').prepend('<div id="error_explanation"><div>');
+		}
+		$('#error_explanation').append("help!");	
 	}
 });
