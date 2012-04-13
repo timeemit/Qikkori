@@ -5,7 +5,6 @@
       tutorialView.render();
     })
     var userForm = new NewUserForm();
-    var user = new User();
 
 .container_12
   #tutorial.grid_3 
@@ -17,27 +16,27 @@
   #sign_up.grid_4
 
     %h1 Play!
+    #user 
+      = form_for @user, :remote => true do |f|
+        = render 'partials/errors'
 
-    = form_for @user, :remote => true do |f|
-      = render 'partials/errors'
+        #username.field
+          = f.label :username
+          = f.text_field :username, :size => 20
+        #email.field
+          = f.label :email
+          = f.text_field :email, :size => 19
+        #email_confirmation.field
+          = f.label :confirm_email
+          = f.text_field :email_confirmation, :size => 18
+        #password.field
+          = f.label :password
+          = f.password_field :password, :size => 17
+        #password_confirmation.field
+          = f.label :confim_password
+          = f.password_field :password_confirmation, :size => 16
 
-      #username.field
-        = f.label :username
-        = f.text_field :username, :size => 20
-      #email.field
-        = f.label :email
-        = f.text_field :email, :size => 19
-      #email_confirmation.field
-        = f.label :confirm_email
-        = f.text_field :email_confirmation, :size => 18
-      #password.field
-        = f.label :password
-        = f.password_field :password, :size => 17
-      #password_confirmation.field
-        = f.label :confim_password
-        = f.password_field :password_confirmation, :size => 16
-
-      .actions
-        = f.submit 'Sign Me Up!'
+        .actions
+          = f.submit 'Sign Me Up!'
 
     = link_to 'Back', users_path

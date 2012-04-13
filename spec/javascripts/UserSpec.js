@@ -1,16 +1,22 @@
 describe("User Model", function() {
-	
 	it('doesn\'t need anything to work', function(){
 		expect(1+1).toEqual(2);
 	});
 	
 	
-	it("initializes the username", function() {
+	it("initializes the username, email, and password", function() {
 		var user = new User;
 		expect(user.get('username')).toEqual('');
 		expect(user.get('email')).toEqual('');
 		expect(user.get('password')).toEqual('');
 		expect(user.get('errors')).toEqual(null);
+	});
+	
+	it("returns an error if the emails do not match", function() {
+		var user = new User;
+		user.set('email', "somewhere@here.com");
+		user.set('email_confirmation', "somewhereElse@There.com");
+		expect(user.get('errors')).toNotEqual(null);
 	});
 });
 
@@ -24,5 +30,5 @@ describe("User Form View", function(){
 		expect($('form').children().length).toEqual(6);
 	});
 	
-	it('should ')
+	// it('should ')
 });
